@@ -4,13 +4,13 @@ using Minnesota_Vikings_App.ViewModels;
 
 namespace Minnesota_Vikings_App.Commands
 {
-    public class CalculateQuarterbackCommand : ICommand
+    public class CalculateQBCommand : ICommand
     {
         private readonly MainPageViewModel _viewModel;
 
         public event EventHandler CanExecuteChanged;
 
-        public CalculateQuarterbackCommand(MainPageViewModel viewModel)
+        public CalculateQBCommand(MainPageViewModel viewModel)
         {
             _viewModel = viewModel;
         }

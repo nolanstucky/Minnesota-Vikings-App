@@ -13,14 +13,14 @@
     </Page.DataContext>
 
     <Grid>
-        <Button Command="{Binding CalculateQuarterbackCommand}" Content="Button" Margin="0,247,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Button Command="{Binding CalculateQBCommand}" Content="Button" Margin="0,247,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <Grid>
             <TextBox HorizontalAlignment="Center" Margin="0,332,0,0" TextWrapping="Wrap" Text="{Binding Path=PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="32" Width="285"/>
-            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,401,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="285"/>
-            <TextBox HorizontalAlignment="Center" Height="36" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="285"/>
-            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,551,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="285"/>
-            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,638,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="285"/>
-            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,709,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="285"/>
+            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,401,0,0" TextWrapping="Wrap" Text="{Binding Path=PassesAttempted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="285"/>
+            <TextBox HorizontalAlignment="Center" Height="36" TextWrapping="Wrap" Text="{Binding Path=PassesCompleted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="285"/>
+            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,551,0,0" TextWrapping="Wrap" Text="{Binding Path=PassingYards, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="285"/>
+            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,638,0,0" TextWrapping="Wrap" Text="{Binding Path=TouchdownPasses, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="285"/>
+            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,709,0,0" TextWrapping="Wrap" Text="{Binding Path=ThrownInterceptions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="285"/>
 
         </Grid>
 
