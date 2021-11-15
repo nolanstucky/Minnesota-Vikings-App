@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Minnesota_Vikings_App.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Minnesota_Vikings_App"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:vm="using:Minnesota_Vikings_App.ViewModels" mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:MainPageViewModel x:ConnectionId='2' x:Name="ViewModel"/>
+    </Page.DataContext>
+
+    <Grid>
+        <Button Command="{Binding CalculateQuarterbackCommand}" Content="Button" Margin="0,247,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Grid>
+            <TextBox HorizontalAlignment="Center" Margin="0,332,0,0" TextWrapping="Wrap" Text="{Binding Path=PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="32" Width="285"/>
+            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,401,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="285"/>
+            <TextBox HorizontalAlignment="Center" Height="36" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="285"/>
+            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,551,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="285"/>
+            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,638,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="285"/>
+            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,709,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="285"/>
+
+        </Grid>
+
+    </Grid>
+
+</Page>
+
