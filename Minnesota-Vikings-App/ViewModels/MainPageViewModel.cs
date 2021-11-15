@@ -12,7 +12,9 @@ namespace Minnesota_Vikings_App.ViewModels
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
+        //
         private CalculateQBRatingModel model;
+
 
         private string playerName;
         public string PlayerName
@@ -99,6 +101,7 @@ namespace Minnesota_Vikings_App.ViewModels
         }
 
         public ICommand CalculateQBCommand { get; }
+
 
         public MainPageViewModel()
         {
