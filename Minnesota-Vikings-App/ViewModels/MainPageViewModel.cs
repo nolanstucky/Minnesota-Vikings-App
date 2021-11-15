@@ -15,7 +15,7 @@ namespace Minnesota_Vikings_App.ViewModels
         //
         private CalculateQBRatingModel model;
 
-
+        //Player Name variable from user input
         private string playerName;
         public string PlayerName
         {
@@ -29,7 +29,7 @@ namespace Minnesota_Vikings_App.ViewModels
                
             }
         }
-
+        //Number of Passes Attempted variable from user input
         private int passesAttempted;
         public int PassesAttempted
         {
@@ -43,7 +43,7 @@ namespace Minnesota_Vikings_App.ViewModels
 
             }
         }
-
+        //Number of Passes Completed variable from user input
         private int passesCompleted;
         public int PassesCompleted
         {
@@ -57,7 +57,7 @@ namespace Minnesota_Vikings_App.ViewModels
 
             }
         }
-
+        //Number of Passing Yards variable from user input
         private int passingYards;
         public int PassingYards
         {
@@ -71,7 +71,7 @@ namespace Minnesota_Vikings_App.ViewModels
 
             }
         }
-
+        //Number of Touchdown Passes from user input
         private int touchdownPasses;
         public int TouchdownPasses
         {
@@ -85,7 +85,7 @@ namespace Minnesota_Vikings_App.ViewModels
 
             }
         }
-
+        //Number of Thrown Interceptions from user input
         private int thrownInterceptions;
         public int ThrownInterceptions
         {
