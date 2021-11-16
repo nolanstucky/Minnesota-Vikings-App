@@ -21,35 +21,42 @@ namespace Minnesota_Vikings_App.Models
             double passCompletionRatio = ((double)passesCompleted / (double)passesAttempted);
             double weightedCompletions = ((passCompletionRatio * 100) - 30) * 0.05;
             weightedCompletions = valueValidate(weightedCompletions);
-            Debug.WriteLine($"weightedCompletions {weightedCompletions}");
+            
+            //Debug.WriteLine($"weightedCompletions {weightedCompletions}");
 
             //formula for weighted value of average yards gained per attempt
             double averageYardRatio = ((double)passingYards / (double)passesAttempted);
             double weightedAverageYards = ((averageYardRatio - 3) * 0.25);
             weightedAverageYards = valueValidate(weightedAverageYards);
-            Debug.WriteLine($"weightedAverageYards {weightedAverageYards}");
+
+            //Debug.WriteLine($"weightedAverageYards {weightedAverageYards}");
 
             //formula for weighted value of percentage of touchdown passes
             double touchdownRatio = ((double)touchdownPasses / (double)passesAttempted);
             double weightedTouchdownPasses = ((touchdownRatio * 100) * 0.2);
             weightedTouchdownPasses = valueValidate(weightedTouchdownPasses);
-            Debug.WriteLine($"weightedTouchdownPasses {weightedTouchdownPasses}");
+
+            //Debug.WriteLine($"weightedTouchdownPasses {weightedTouchdownPasses}");
 
             //formula for weighted value of interceptions
             double interceptionRatio = ((double)thrownInterceptions / (double)passesAttempted);
             double weightedInterceptionsMulti = ((interceptionRatio * 100) * 0.25);
             double weightedInterceptions = (2.375 - weightedInterceptionsMulti);
             weightedInterceptions = valueValidate(weightedInterceptions);
-            Debug.WriteLine($"weightedInterceptions {weightedInterceptions}");
+
+            //Debug.WriteLine($"weightedInterceptions {weightedInterceptions}");
 
             //formula for final calculation
             double finalCalculationRatio = ((double)(weightedCompletions + weightedAverageYards + weightedTouchdownPasses + weightedInterceptions) / (double)6);
             double finalCalculation = (finalCalculationRatio * 100);
-            Debug.WriteLine($"finalCalculationRatio {finalCalculationRatio}");
-            Debug.WriteLine($"finalCalculation {finalCalculation}");
-            return finalCalculationRatio;
+
+            //Debug.WriteLine($"finalCalculationRatio {finalCalculationRatio}");
+            //Debug.WriteLine($"finalCalculation {finalCalculation}");
+
+            //returns the final calculation number
+            return finalCalculation;
         }
-        //method that takes in the weighted number and validates 
+        //method that takes in the weighted number and validates it with a min value of 0 and a max of 2.375
         public double valueValidate(double calculatedNumber)
         {
             if (calculatedNumber > 2.375)

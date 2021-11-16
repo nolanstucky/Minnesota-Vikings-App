@@ -10,9 +10,14 @@ namespace Minnesota_Vikings_App.ViewModels
     public class MainPageViewModel : INotifyPropertyChanged
 
     {
-
+        //Allows for the update of the window by notifying client that a property has changed
         public event PropertyChangedEventHandler PropertyChanged;
-        //
+ 
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        
         private CalculateQBRatingModel model;
 
         //Player Name variable from user input
@@ -100,6 +105,22 @@ namespace Minnesota_Vikings_App.ViewModels
             }
         }
 
+        private string resultTextBlock;
+        public string ResultTextBlock
+        {
+            get
+            {
+                return resultTextBlock;
+            }
+            set
+            {
+                resultTextBlock = value;
+                //used to notify that the resulttextblock value has changed and to update client
+                OnPropertyChanged("ResultTextBlock");
+            }
+        }
+
+    
         public ICommand CalculateQBCommand { get; }
 
 
@@ -111,9 +132,15 @@ namespace Minnesota_Vikings_App.ViewModels
 
         public void buttonClick()
         {
-            Debug.WriteLine($"Here is name '{PlayerName} {PassesAttempted}'.");
+            //passes in user input variables to CalculateQBRatingModel calculate method to produce QB Rating
             double qbRating = model.calculate(PassesAttempted, PassesCompleted, PassingYards, TouchdownPasses, ThrownInterceptions) ;
             Debug.WriteLine(qbRating);
+
+            ResultTextBlock = $"{PlayerName}'s QB Rating is: {qbRating}";
+            //ResultTextBlock = "Test";
+            Debug.WriteLine(ResultTextBlock);
+
+
         }
 
     }
