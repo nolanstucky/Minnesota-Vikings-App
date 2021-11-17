@@ -8,36 +8,46 @@
     xmlns:vm="using:Minnesota_Vikings_App.ViewModels" mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    
+
     <Page.DataContext>
         <vm:MainPageViewModel x:ConnectionId='2' x:Name="ViewModel"/>
     </Page.DataContext>
 
 
     <Grid Background="#eeeeee">
-        
+
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:ConnectionId='3' x:Name="VisualStateGroup">
-                
-                <VisualState x:ConnectionId='4' x:Name="desktop">
+
+                <VisualState x:ConnectionId='4' x:Name="wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="2000"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="vikingsLogo.Width" Value="0"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:ConnectionId='5' x:Name="desktop">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="1000"/>
                     </VisualState.StateTriggers>
                 </VisualState>
 
-                <VisualState x:ConnectionId='5' x:Name="mobile">
+                <VisualState x:ConnectionId='6' x:Name="mobile">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="200"/>
                     </VisualState.StateTriggers>
 
                     <VisualState.Setters>
-                        <Setter Target="titleTop.FontSize" Value="35"/>
+                        <Setter Target="titleTop.FontSize" Value="30"/>
                         <Setter Target="titleTop.Margin" Value="0,0,0,25"/>
                         <Setter Target="titleBottom.FontSize" Value="25"/>
                         <Setter Target="titleGrid.Height" Value="100"/>
                         <Setter Target="bannerGrid.Height" Value="20"/>
                         <Setter Target="userInputGrid.Margin" Value="0,-35,0,250"/>
-                        <Setter Target="userInputGrid.Width" Value="300"/>
+                        <Setter Target="userInputGrid.Width" Value="450"/>
+                        <Setter Target="resultTextBlock.FontSize" Value="15"/>
                         <Setter Target="bannerLines1.Height" Value="0"/>
                         <Setter Target="bannerLines2.Height" Value="0"/>
                     </VisualState.Setters>
@@ -45,59 +55,62 @@
 
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Width="1000" Height="900" Margin="0,125,0,0">
-            <Grid x:ConnectionId='12' x:Name="userInputGrid" Background="white" HorizontalAlignment="Center" VerticalAlignment="Center" Width="450" CornerRadius="25">
-                <StackPanel x:ConnectionId='13' x:Name = "userInput" Margin="0,48,0,10">
-                    <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Name of Quaterback" TextAlignment="Center" FontFamily="Segoe UI"/>
-                    <TextBox x:ConnectionId='14' Name="nameInput" Width="250" Height="40" Margin="10" Text="{Binding Path=PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
-                    <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Passes Attempted" TextAlignment="Center"/>
-                    <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PassesAttempted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
-                    <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Passes Completed" TextAlignment="Center"/>
-                    <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PassesCompleted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
-                    <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Passing Yards" TextAlignment="Center"/>
-                    <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PassingYards, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
-                    <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Touchdown Passes" TextAlignment="Center"/>
-                    <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=TouchdownPasses, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
-                    <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Interception Passes" TextAlignment="Center"/>
-                    <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=ThrownInterceptions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
-                    <Button Content = "Calculate" FontSize="17" Width = "125" Height = "40" Margin = "10" CornerRadius="5" HorizontalAlignment="Center" Command="{Binding CalculateQBCommand}"/>
-                </StackPanel>
+
+        <ScrollViewer HorizontalAlignment="Center" Margin="0,0,0,-40" Width="1000">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Width="1000" Height="900" Margin="0,125,0,0">
+
+                <Grid x:ConnectionId='14' x:Name="userInputGrid" Background="white" HorizontalAlignment="Center" VerticalAlignment="Center" Width="450" CornerRadius="25">
+                    <StackPanel x:ConnectionId='15' x:Name = "userInput" Margin="0,48,0,10">
+                        <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Name of Quaterback" TextAlignment="Center" FontFamily="Segoe UI"/>
+                        <TextBox x:ConnectionId='17' Name="nameInput" Width="250" Height="40" Margin="10" Text="{Binding Path=PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                        <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Passes Attempted" TextAlignment="Center"/>
+                        <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PassesAttempted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                        <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Passes Completed" TextAlignment="Center"/>
+                        <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PassesCompleted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                        <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Passing Yards" TextAlignment="Center"/>
+                        <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PassingYards, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                        <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Touchdown Passes" TextAlignment="Center"/>
+                        <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=TouchdownPasses, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                        <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Interception Passes" TextAlignment="Center"/>
+                        <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=ThrownInterceptions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                        <Button Content = "Calculate" FontSize="17" Width = "125" Height = "40" Margin = "10" CornerRadius="5" HorizontalAlignment="Center" Command="{Binding CalculateQBCommand}"/>
+                    </StackPanel>
 
 
-                <StackPanel Background="white" HorizontalAlignment="Center" VerticalAlignment="Top" Width="500" Height="109" CornerRadius="30" Margin="0,623,0,0"  >
-                    <Border BorderBrush="#eeeeee" BorderThickness="0,5,0,0" >
-                        <TextBlock FontSize="20" Width="375" Height="60" Text="{Binding Path=ResultTextBlock, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" Margin="0,25,0,0"/>
-                    </Border>
-                </StackPanel>
+                    <StackPanel Background="white" HorizontalAlignment="Center" VerticalAlignment="Top" Width="500" Height="109" CornerRadius="30" Margin="0,623,0,0"  >
+                        <Border BorderBrush="#eeeeee" BorderThickness="0,5,0,0" >
+                            <TextBlock x:ConnectionId='16' x:Name="resultTextBlock" FontSize="20" Width="375" Height="60" Text="{Binding Path=ResultTextBlock, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" Margin="0,25,0,0"/>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+
+
+
             </Grid>
+        </ScrollViewer>
 
 
-
-        </Grid>
-
-
-        <Grid x:ConnectionId='6' x:Name="bannerLines1" Background="#f2be29" VerticalAlignment="Top" Height="37" Width="Auto" Margin="1179,580,-362,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+        <Grid x:ConnectionId='7' x:Name="bannerLines1" Background="#f2be29" VerticalAlignment="Top" Height="37" Width="Auto" Margin="1179,580,-362,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
             <Grid.RenderTransform>
                 <CompositeTransform Rotation="50.568"/>
             </Grid.RenderTransform>
         </Grid>
-        <Grid x:ConnectionId='7' x:Name="bannerLines2" Background="#f2be29" VerticalAlignment="Top" Height="37" Width="Auto" Margin="1249,528,-432,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+        <Grid x:ConnectionId='8' x:Name="bannerLines2" Background="#f2be29" VerticalAlignment="Top" Height="37" Width="Auto" Margin="1249,528,-432,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
             <Grid.RenderTransform>
                 <CompositeTransform Rotation="50.568"/>
             </Grid.RenderTransform>
         </Grid>
-        <Grid x:ConnectionId='8' x:Name="bannerGrid" Background="#4f2880" VerticalAlignment="Top" Height="125px" Width="Auto" Margin="0,100,0,0"/>
-        <Grid x:ConnectionId='9' x:Name="titleGrid" Background="#25173c" HorizontalAlignment="Center" VerticalAlignment="Top" Width="750" Height="200" >
-            <TextBlock x:ConnectionId='10' x:Name="titleTop" Foreground="White" FontFamily="/Assets/Fonts/NFL_Minnesota_Vikings.ttf#NFL Minnesota Vikings" FontSize="70" FontWeight="Bold" HorizontalAlignment="center" VerticalAlignment="Center" Margin="0,0,0,50">
-                Quarterback Ratings
+        <Grid x:ConnectionId='9' x:Name="bannerGrid" Background="#4f2880" VerticalAlignment="Top" Height="125px" Width="Auto" Margin="0,100,0,0"/>
+        <Grid x:ConnectionId='10' x:Name="titleGrid" Background="#25173c" HorizontalAlignment="Center" VerticalAlignment="Top" Width="750" Height="200" >
+            <TextBlock x:ConnectionId='12' x:Name="titleTop" Foreground="White" FontFamily="/Assets/Fonts/NFL_Minnesota_Vikings.ttf#NFL Minnesota Vikings" FontSize="70" FontWeight="Bold" HorizontalAlignment="center" VerticalAlignment="Center" Margin="0,0,0,50">
+                    Quarterback Ratings
             </TextBlock>
-            <TextBlock x:ConnectionId='11' x:Name="titleBottom" Foreground="White" FontFamily="/Assets/Fonts/NFL_Minnesota_Vikings.ttf#NFL Minnesota Vikings" FontSize="60" FontWeight="Bold" HorizontalAlignment="center" VerticalAlignment="Bottom" Margin="0,0,0,15">
-                Calculator
+            <TextBlock x:ConnectionId='13' x:Name="titleBottom" Foreground="White" FontFamily="/Assets/Fonts/NFL_Minnesota_Vikings.ttf#NFL Minnesota Vikings" FontSize="60" FontWeight="Bold" HorizontalAlignment="center" VerticalAlignment="Bottom" Margin="0,0,0,15">
+                    Calculator
             </TextBlock>
         </Grid>
 
-        <Image Source="/Assets/vikings_logo.png" Margin="1162,-66,422,788"/>
+        <Image x:ConnectionId='11' x:Name="vikingsLogo" Source="/Assets/vikings_logo.png" Margin="1162,-66,422,788"/>
     </Grid>
 
 </Page>
