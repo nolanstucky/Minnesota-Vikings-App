@@ -22,7 +22,7 @@ namespace Minnesota_Vikings_App.ViewModels
         private StringConverterModel converterModel;
 
         //Player Name variable from user input
-        private string playerName;
+        private string playerName = "Player Name";
         public string PlayerName
         {
             get
@@ -36,7 +36,7 @@ namespace Minnesota_Vikings_App.ViewModels
             }
         }
         //Number of Passes Attempted variable from user input
-        private string passesAttempted;
+        private string passesAttempted = "0";
         public string PassesAttempted
         {
             get
@@ -50,7 +50,7 @@ namespace Minnesota_Vikings_App.ViewModels
             }
         }
         //Number of Passes Completed variable from user input
-        private string passesCompleted;
+        private string passesCompleted = "0";
         public string PassesCompleted
         {
             get
@@ -64,7 +64,7 @@ namespace Minnesota_Vikings_App.ViewModels
             }
         }
         //Number of Passing Yards variable from user input
-        private string passingYards;
+        private string passingYards = "0";
         public string PassingYards
         {
             get
@@ -78,7 +78,7 @@ namespace Minnesota_Vikings_App.ViewModels
             }
         }
         //Number of Touchdown Passes from user input
-        private string touchdownPasses;
+        private string touchdownPasses = "0";
         public string TouchdownPasses
         {
             get
@@ -92,7 +92,7 @@ namespace Minnesota_Vikings_App.ViewModels
             }
         }
         //Number of Thrown Interceptions from user input
-        private string thrownInterceptions;
+        private string thrownInterceptions = "0";
         public string ThrownInterceptions
         {
             get
@@ -105,7 +105,7 @@ namespace Minnesota_Vikings_App.ViewModels
 
             }
         }
-
+        //Variable that is bound to Textblock for qb results
         private string resultTextBlock;
         public string ResultTextBlock
         {
@@ -121,7 +121,7 @@ namespace Minnesota_Vikings_App.ViewModels
             }
         }
 
-    
+        //class used to allow button execute 
         public ICommand CalculateQBCommand { get; }
 
 
@@ -134,7 +134,7 @@ namespace Minnesota_Vikings_App.ViewModels
 
         public void buttonClick()
         {
-            Debug.WriteLine(PlayerName);
+            
             //passes in user input variables to CalculateQBRatingModel calculate method to produce QB Rating
 
             //calculates qbRating from user input while also checking if it's a valid number or not
@@ -144,23 +144,29 @@ namespace Minnesota_Vikings_App.ViewModels
                                                       converterModel.stringConverter(TouchdownPasses), 
                                                       converterModel.stringConverter(ThrownInterceptions)
                                                       );
-            Debug.WriteLine(qbRating);
-            //ResultTextBlock = "Test";
-            Debug.WriteLine(ResultTextBlock);
+            //Debug.WriteLine(qbRating);
+            validateInput(qbRating);
 
-            if (qbRating == -1)
+        }
+        //method that checks user input errors 
+        public void validateInput(double rating)
+        {
+            if (PlayerName == "")
+            {
+                ResultTextBlock = "Please enter Player Name.";
+            }
+            else if (rating == -1)
             {
                 ResultTextBlock = "Please enter valid numbers for each field.";
-            } 
-            else if (qbRating == -2)
+            }
+            else if (rating == -2)
             {
                 ResultTextBlock = "Player must have at least 1 pass attempted.";
-            } 
+            }
             else
             {
-                ResultTextBlock = $"{PlayerName}'s QB Rating is: {qbRating}.";
+                ResultTextBlock = $"{PlayerName}'s QB Rating is: {rating}";
             }
-
         }
 
     }

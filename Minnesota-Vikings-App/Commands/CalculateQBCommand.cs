@@ -4,6 +4,7 @@ using Minnesota_Vikings_App.ViewModels;
 
 namespace Minnesota_Vikings_App.Commands
 {
+    //Class that enables button function following mvvm pattern
     public class CalculateQBCommand : ICommand
     {
         private readonly MainPageViewModel _viewModel;

@@ -63,6 +63,8 @@ namespace Minnesota_Vikings_App.Models
             //Debug.WriteLine($"finalCalculationRatio {finalCalculationRatio}");
             //Debug.WriteLine($"finalCalculation {finalCalculation}");
 
+            //rounds calculation to 1 decimal
+            finalCalculation = Math.Round(finalCalculation, 1);
             //returns the final calculation number
             return finalCalculation;
         }
