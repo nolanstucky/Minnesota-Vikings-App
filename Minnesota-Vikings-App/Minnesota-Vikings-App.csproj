@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="Commands\CalculateQBCommand.cs" />
     <Compile Include="Models\CalculateQBRatingModel.cs" />
+    <Compile Include="Models\StringConverterModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -160,7 +161,9 @@
       <Version>5.4.1.1</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Fonts\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

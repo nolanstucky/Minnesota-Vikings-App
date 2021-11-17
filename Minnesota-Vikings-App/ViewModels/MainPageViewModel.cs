@@ -18,7 +18,8 @@ namespace Minnesota_Vikings_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         
-        private CalculateQBRatingModel model;
+        private CalculateQBRatingModel qbRatingModel;
+        private StringConverterModel converterModel;
 
         //Player Name variable from user input
         private string playerName;
@@ -35,8 +36,8 @@ namespace Minnesota_Vikings_App.ViewModels
             }
         }
         //Number of Passes Attempted variable from user input
-        private int passesAttempted;
-        public int PassesAttempted
+        private string passesAttempted;
+        public string PassesAttempted
         {
             get
             {
@@ -49,8 +50,8 @@ namespace Minnesota_Vikings_App.ViewModels
             }
         }
         //Number of Passes Completed variable from user input
-        private int passesCompleted;
-        public int PassesCompleted
+        private string passesCompleted;
+        public string PassesCompleted
         {
             get
             {
@@ -63,8 +64,8 @@ namespace Minnesota_Vikings_App.ViewModels
             }
         }
         //Number of Passing Yards variable from user input
-        private int passingYards;
-        public int PassingYards
+        private string passingYards;
+        public string PassingYards
         {
             get
             {
@@ -77,8 +78,8 @@ namespace Minnesota_Vikings_App.ViewModels
             }
         }
         //Number of Touchdown Passes from user input
-        private int touchdownPasses;
-        public int TouchdownPasses
+        private string touchdownPasses;
+        public string TouchdownPasses
         {
             get
             {
@@ -91,8 +92,8 @@ namespace Minnesota_Vikings_App.ViewModels
             }
         }
         //Number of Thrown Interceptions from user input
-        private int thrownInterceptions;
-        public int ThrownInterceptions
+        private string thrownInterceptions;
+        public string ThrownInterceptions
         {
             get
             {
@@ -127,19 +128,33 @@ namespace Minnesota_Vikings_App.ViewModels
         public MainPageViewModel()
         {
             CalculateQBCommand = new CalculateQBCommand(this);
-            model = new CalculateQBRatingModel(); 
+            qbRatingModel = new CalculateQBRatingModel(); 
+            converterModel = new StringConverterModel();
         }
 
         public void buttonClick()
         {
+            Debug.WriteLine(PlayerName);
             //passes in user input variables to CalculateQBRatingModel calculate method to produce QB Rating
-            double qbRating = model.calculate(PassesAttempted, PassesCompleted, PassingYards, TouchdownPasses, ThrownInterceptions) ;
-            Debug.WriteLine(qbRating);
 
-            ResultTextBlock = $"{PlayerName}'s QB Rating is: {qbRating}";
+            //calculates qbRating from user input while also checking if it's a valid number or not
+            double qbRating = qbRatingModel.calculate(converterModel.stringConverter(PassesAttempted), 
+                                                      converterModel.stringConverter(PassesCompleted), 
+                                                      converterModel.stringConverter(PassingYards), 
+                                                      converterModel.stringConverter(TouchdownPasses), 
+                                                      converterModel.stringConverter(ThrownInterceptions)
+                                                      );
+            Debug.WriteLine(qbRating);
             //ResultTextBlock = "Test";
             Debug.WriteLine(ResultTextBlock);
 
+            if (qbRating == -1)
+            {
+                ResultTextBlock = "Please enter valid numbers for each field";
+            } else
+            {
+                ResultTextBlock = $"{PlayerName}'s QB Rating is: {qbRating}";
+            }
 
         }
 

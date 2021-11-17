@@ -12,18 +12,31 @@
         <vm:MainPageViewModel x:Name="ViewModel"/>
     </Page.DataContext>
 
-    <Grid>
-        <Button Command="{Binding CalculateQBCommand}" Content="Button" Margin="0,247,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+    <Grid Background="#eeeeee">
+        <VisualStateManager.VisualStateGroups>
 
-        <Grid>
-            <TextBox HorizontalAlignment="Center" Height="32" Margin="0,332,0,0" TextWrapping="Wrap" Text="{Binding Path=PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"  Width="285"/>
-            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,401,0,0" TextWrapping="Wrap" Text="{Binding Path=PassesAttempted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="285"/>
-            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,482,0,0" TextWrapping="Wrap" Text="{Binding Path=PassesCompleted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="285" />
-            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,551,0,0" TextWrapping="Wrap" Text="{Binding Path=PassingYards, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="285"/>
-            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,638,0,0" TextWrapping="Wrap" Text="{Binding Path=TouchdownPasses, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="285"/>
-            <TextBox HorizontalAlignment="Center" Height="36" Margin="0,709,0,0" TextWrapping="Wrap" Text="{Binding Path=ThrownInterceptions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="285"/>
-            <TextBlock HorizontalAlignment="Center" Height="36" Margin="0,784,0,0" TextWrapping="Wrap" Text="{Binding Path=ResultTextBlock, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="285"/>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Height="700">
+            <Grid  Background="white" HorizontalAlignment="Center" VerticalAlignment="Center" Width="321" CornerRadius="25">
+                <StackPanel x:Name = "userInput" Margin="0,48,0,10">
+                    <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                    <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PassesAttempted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                    <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PassesCompleted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                    <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PassingYards, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                    <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=TouchdownPasses, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                    <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=ThrownInterceptions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                    <Button Content = "Button 1" Width = "100" Height = "40" Margin = "10" HorizontalAlignment="Center" Command="{Binding CalculateQBCommand}"/>
+                
+                </StackPanel>
+            </Grid>
+
+            <Grid  Background="white" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="417" Height="88" CornerRadius="30">
+                <TextBlock FontSize="20" Width="250" Height="40" Text="{Binding Path=ResultTextBlock, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
         </Grid>
+
+        <Grid Background="#4f2880" Margin="0,124,0,832" Height="100px"/>
 
 
 
