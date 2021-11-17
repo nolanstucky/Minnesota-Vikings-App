@@ -46,8 +46,8 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nolan\code\Minnesota-Vikings-App\Minnesota-Vikings-App\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Nolan\code\Minnesota-Vikings-App\Minnesota-Vikings-App\Assets\vikings_logo.png">
+      <PackagePath>Assets\vikings_logo.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nolan\code\Minnesota-Vikings-App\Minnesota-Vikings-App\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -75,6 +75,12 @@
     <AppxPackagedFile Include="C:\Users\Nolan\code\Minnesota-Vikings-App\Minnesota-Vikings-App\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nolan\code\Minnesota-Vikings-App\Minnesota-Vikings-App\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nolan\code\Minnesota-Vikings-App\Minnesota-Vikings-App\Assets\Fonts\NFL_Minnesota_Vikings.ttf">
+      <PackagePath>Assets\Fonts\NFL_Minnesota_Vikings.ttf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nolan\code\Minnesota-Vikings-App\Minnesota-Vikings-App\bin\x86\Debug\Minnesota-Vikings-App.xr.xml">
       <PackagePath>Minnesota-Vikings-App.xr.xml</PackagePath>

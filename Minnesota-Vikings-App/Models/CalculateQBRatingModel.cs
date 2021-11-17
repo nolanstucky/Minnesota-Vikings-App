@@ -22,6 +22,11 @@ namespace Minnesota_Vikings_App.Models
             {
                 return -1;
             }
+            
+            if (passesAttempted < 1)
+            {
+                return -2;
+            }
             //formula for weighted value of percentage of completions per attempt
             double passCompletionRatio = ((double)passesCompleted / (double)passesAttempted);
             double weightedCompletions = ((passCompletionRatio * 100) - 30) * 0.05;

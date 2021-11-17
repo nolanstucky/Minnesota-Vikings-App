@@ -13,32 +13,58 @@
     </Page.DataContext>
 
     <Grid Background="#eeeeee">
-        <VisualStateManager.VisualStateGroups>
 
-        </VisualStateManager.VisualStateGroups>
 
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Height="700">
-            <Grid  Background="white" HorizontalAlignment="Center" VerticalAlignment="Center" Width="321" CornerRadius="25">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Width="1000" Height="900" Margin="0,125,0,0">
+            <Grid  Background="white" HorizontalAlignment="Center" VerticalAlignment="Center" Width="450" CornerRadius="25">
                 <StackPanel x:Name = "userInput" Margin="0,48,0,10">
+                    <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Name of Quaterback" TextAlignment="Center"/>
                     <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                    <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Passes Attempted" TextAlignment="Center"/>
                     <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PassesAttempted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                    <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Passes Completed" TextAlignment="Center"/>
                     <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PassesCompleted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                    <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Passing Yards" TextAlignment="Center"/>
                     <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=PassingYards, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                    <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Touchdown Passes" TextAlignment="Center"/>
                     <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=TouchdownPasses, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                    <TextBlock FontSize="20" Width="250" Height="35" Margin="0,0,0,-10" Text="Interception Passes" TextAlignment="Center"/>
                     <TextBox Width="250" Height="40" Margin="10" Text="{Binding Path=ThrownInterceptions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
-                    <Button Content = "Button 1" Width = "100" Height = "40" Margin = "10" HorizontalAlignment="Center" Command="{Binding CalculateQBCommand}"/>
-                
+                    <Button Content = "Calculate" Width = "100" Height = "40" Margin = "10" HorizontalAlignment="Center" Command="{Binding CalculateQBCommand}"/>
+                </StackPanel>
+
+
+                <StackPanel Background="white" HorizontalAlignment="Center" VerticalAlignment="Top" Width="500" Height="109" CornerRadius="30" Margin="0,623,0,0"  >
+                    <TextBlock FontSize="20" Width="375" Height="60" Text="{Binding Path=ResultTextBlock, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
             </Grid>
 
-            <Grid  Background="white" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="417" Height="88" CornerRadius="30">
-                <TextBlock FontSize="20" Width="250" Height="40" Text="{Binding Path=ResultTextBlock, UpdateSourceTrigger=PropertyChanged}" />
-            </Grid>
+
+
         </Grid>
 
-        <Grid Background="#4f2880" Margin="0,124,0,832" Height="100px"/>
 
+        <Grid Background="#f2be29" VerticalAlignment="Top" Height="37" Width="Auto" Margin="1179,580,-362,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <Grid.RenderTransform>
+                <CompositeTransform Rotation="50.568"/>
+            </Grid.RenderTransform>
+        </Grid>
+        <Grid Background="#f2be29" VerticalAlignment="Top" Height="37" Width="Auto" Margin="1249,528,-432,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <Grid.RenderTransform>
+                <CompositeTransform Rotation="50.568"/>
+            </Grid.RenderTransform>
+        </Grid>
+        <Grid Background="#4f2880" VerticalAlignment="Top" Height="125px" Width="Auto" Margin="0,100,0,0"/>
+        <Grid Background="#25173c" HorizontalAlignment="Center" VerticalAlignment="Top" Width="750" Height="200" >
+            <TextBlock Foreground="White" FontFamily="/Assets/Fonts/NFL_Minnesota_Vikings.ttf#NFL Minnesota Vikings" FontSize="70" FontWeight="Bold" HorizontalAlignment="center" VerticalAlignment="Center">
+                Quaterback Ratings
+            </TextBlock>
+            <TextBlock Foreground="White" FontFamily="/Assets/Fonts/NFL_Minnesota_Vikings.ttf#NFL Minnesota Vikings" FontSize="60" FontWeight="Bold" HorizontalAlignment="center" VerticalAlignment="Bottom">
+                Calculator
+            </TextBlock>
+        </Grid>
 
+        <Image Source="/Assets/vikings_logo.png" Margin="1160,-79,424,801"/>
 
     </Grid>
 

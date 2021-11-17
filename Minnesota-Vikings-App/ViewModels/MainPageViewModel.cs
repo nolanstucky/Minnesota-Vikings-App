@@ -150,10 +150,15 @@ namespace Minnesota_Vikings_App.ViewModels
 
             if (qbRating == -1)
             {
-                ResultTextBlock = "Please enter valid numbers for each field";
-            } else
+                ResultTextBlock = "Please enter valid numbers for each field.";
+            } 
+            else if (qbRating == -2)
             {
-                ResultTextBlock = $"{PlayerName}'s QB Rating is: {qbRating}";
+                ResultTextBlock = "Player must have at least 1 pass attempted.";
+            } 
+            else
+            {
+                ResultTextBlock = $"{PlayerName}'s QB Rating is: {qbRating}.";
             }
 
         }
